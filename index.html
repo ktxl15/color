@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>color</title>
+		<link rel="stylesheet" type="text/css" href="css/main.css"/>
+	</head>
+	<body>
+		<div class="top">
+			<ul class="top-ul">
+				<li class="top-li"></li>
+				<li class="top-li"></li>
+				<li class="top-li"></li>
+			</ul>
+			<div class="top-mask"></div>
+			<div class="top-text">
+				<div class="top-h1">SBR</div>
+				<div class="top-p" data-text="Business is the salt of life.">Business is the salt of life.</div>
+			</div>
+		</div>
+		<div class="navi-all">
+			<div class="navi">
+			<div class="navi-w">
+				<div class="logo">
+					<img src="img/logo1.png">
+				</div>
+				<ul class="navi-ul">
+					<li class="navi-li">Home</li>
+					<li class="navi-li">Content</li>
+					<li class="navi-li">About</li>
+					<li class="navi-li">Call me</li>
+					<li class="navi-li">End</li>
+				</ul>
+			</div>
+		</div>
+		</div>
+		<div class="content">
+			<div class="content-yuan">
+				<div class="content-yuan1"></div>
+			</div>
+			
+		<div class="content-w">
+				<div class="content-h1">Welcome to My Web</div>
+			<div class="content-main">
+				<img src="img/81.jpg" alt="" class="content-img">
+				<div class="content-text">
+					<h1 class="ct-h1">While there is life there is hope.</h1>
+					<p class="ct-p">
+						Happiness is a way station between too much and too little.
+						Journey of a thousand miles begins with single step.
+						Don’t let a little dispute break up a great friendship.
+					</p>
+				</div>
+			</div>
+		</div>
+		</div>
+		<div class="about">
+			<div class="about-w">
+				<div class="about-box">
+					<img src="img/am.png" class="box-img">
+				</div>
+				<div class="about-text">
+					<h1 class="about-h1">About me</h1>
+					<div class="about-img">
+						<div class="about-main">
+							<p class="about-p">
+								There are moments in life when you miss someone so much that you just want to pick them from your dreams and hug them for real! Dream what you want to dream;go where you want to go;be what you want to be,because you have only one life and one chance to do all the things you want to do.
+							</p>
+						</div>
+					</div>
+					<div class="about-yuan"></div>
+				</div>
+			</div>
+		</div>
+		<div class="callme">
+			<div class="call-yuan"></div>
+			<div class="call-act2">
+				<div class="call-yuan2"></div>
+				<div class="call-yuan3"></div>
+			</div>
+			<div class="call-yuan4"></div>
+			<div class="callme-w">
+			</div>
+			
+			<div class="call-main">
+			</div>
+			<div class="call-ad"></div>
+		</div>
+		
+		<div class="foot">
+			<div class="foot-w">
+				<div class="act1 f">
+					<h1 class="foot-h1">Some More:</h1>
+					<p class="foot-p">
+						Please send this message to those people who mean something to you,to those who have touched your life in one way or another,to those who make you smile when you really need it,to those that make you see the brighter side of things when you are really down,to those who you want to let them know that you appreciate their friendship.And if you don’t, don’t worry,nothing bad will happen to you,you will just miss out on the opportunity to brighten someone’s day with this message.
+					</p>
+				</div>
+				<div class="act2 f">
+					<h1 class="foot-h1">Callme:</h1>
+					<img src="img/github-fill.png"><br>
+					<img src="img/instagram.png" ><br>
+					<img src="img/邮箱.png" >
+				</div>
+				<div class="act3 f">
+					<h1 class="foot-h1">find me:</h1>
+					<img src="img/pm.gif" >
+				</div>
+			</div>
+			<div class="foot-main">Copyright © 2021.Company name All jojo ktxl's name.</div>
+		</div>
+		
+	</body>
+	<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var intft = 0
+			setInterval(function(){
+				intft++
+				if(intft >= $('.top-li').length){
+					intft = 0
+				}
+				$('.top-ul').css({'margin-left':intft*-100+'%'})
+			},3000)
+			$(window).scroll(function(){
+				var top = $(window).scrollTop();
+				var hei1 = $('.top').height();
+				var hei2 = $('.content').height()
+				var hei3 = $('.callme').height()
+				var index = $(this).index()
+				var g = top/hei1
+				var c = Math.ceil(g)
+				$('.navi-li').eq(c).addClass('addnavi-li2').siblings().removeClass('addnavi-li2')
+				if(top > hei1){
+					$('.navi').addClass('add-navi')
+					$('.navi-li').addClass('addnavi-li')
+					$('.logo').addClass('add-logo')
+					$('.logo img').css({'height':'70px'})
+				}else{
+					$('.navi').removeClass('add-navi')
+					$('.navi-li').removeClass('addnavi-li')
+					$('.logo').removeClass('add-logo')
+					$('.logo img').css({'height':'100px'})
+				}
+				if(top > hei1/2){
+					$('.ct-h1').addClass('addct-h1')
+					$('.ct-p').addClass('addct-p')
+					$('.content-text').addClass('addcontent-text')
+					$('.content-yuan1').css({'filter':'blur(3px)'})
+				}
+				if(top > hei1+hei2/2){
+					$('.about-main').addClass('addabout-main')
+					$('.about-h1').addClass('addabout-h1')
+				}
+				if(top > hei1+hei2+hei3/2){
+					$('.callme-w').css({'transform':'rotateY(360deg)'})
+					$('.call-main').css({'transform':'rotateY(360deg)translateY(-30px)','opacity':'1'})
+					$('.call-ad').addClass('addcall-ad')
+				}
+			})
+			$('.navi-li').click(function(){
+				var index = $(this).index()
+				var to = index*900+'px'
+				$('html,body').animate({'scrollTop':to},800)
+			})
+		})
+		
+	</script>
+</html>
